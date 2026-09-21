@@ -14,12 +14,13 @@ Poly-Synth is a 3-voice polyphonic synthesizer ASIC, taped out on Tiny Tapeout S
 ## Hear it
 
 <!-- TODO: your OBS recording. Label it as the FPGA prototype. -->
-<audio controls src="null"></audio>
+<audio controls src="/assets/audio/fpga-demo.mp3"></audio>
 
 ## System
 
-<!-- TODO: block diagram from the repo. Mark the chip boundary: MCU (MIDI to tuning words), SPI, chip, analog filters. -->
-![Poly-Synth block diagram](null)
+![Poly-Synth block diagram](/assets/img/block-diagram.svg)
+
+![Poly-Synth die render](/assets/img/die-render.png)
 
 ## Verification
 

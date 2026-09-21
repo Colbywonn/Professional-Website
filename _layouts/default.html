@@ -4,19 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% seo %}
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 </head>
 <body>
   <header class="site-header">
-    <a class="wordmark" href="{{ '/' | relative_url }}">Colby Miller</a>
     <nav>
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/projects/synth/' | relative_url }}">Poly-Synth</a>
-      <a href="{{ '/resume.pdf' | relative_url }}">Resume</a>
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="current"{% endif %}>Home</a>
+      <div class="dropdown{% if page.url contains '/projects/' %} current{% endif %}" tabindex="0">
+        <span class="dropdown-toggle">Projects <span class="caret" aria-hidden="true">&#9662;</span></span>
+        <div class="dropdown-menu">
+          <a href="{{ '/projects/synth/' | relative_url }}">Poly-Synth</a>
+        </div>
+      </div>
+      <a href="{{ '/assets/resume.pdf' | relative_url }}" target="_blank" rel="noopener">Resume</a>
     </nav>
+    <div class="dropdown align-right" tabindex="0">
+      <span class="dropdown-toggle">Extras <span class="caret" aria-hidden="true">&#9662;</span></span>
+      <div class="dropdown-menu">
+        <a href="https://mission.colbywonn.com" target="_blank" rel="noopener">Mission Journal <span class="ext-icon" aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
   </header>
   <main>
     {{ content }}

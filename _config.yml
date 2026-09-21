@@ -3,6 +3,7 @@ description: Computer Engineering student at the University of Utah, with experi
 url: "https://colbywonn.com"
 author: Colby Miller
 lang: en
+image: /headshot.jpg
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap

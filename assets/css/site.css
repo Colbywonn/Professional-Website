@@ -1,11 +1,11 @@
 :root {
   --bg: #ffffff;
-  --text: #1a1f2b;
+  --text: #000000;
   --muted: #5a6275;
   --navy: #14285a;
   --rule: #dde2ec;
-  --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --display: "Quantico", "Arial Narrow", Arial, sans-serif;
+  --sans: "Poppins", "Segoe UI", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -21,6 +21,8 @@ body {
   line-height: 1.65;
 }
 
+.headshot { display: block; width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1.25rem; }
+
 /* Header */
 .site-header {
   display: flex;
@@ -32,20 +34,53 @@ body {
   border-bottom: 1px solid var(--rule);
   margin-bottom: 3rem;
 }
-.wordmark {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--navy);
-  text-decoration: none;
-}
-.site-header nav { display: flex; gap: 1.25rem; }
+.site-header nav { display: flex; gap: 1.25rem; font-family: var(--display); }
 .site-header nav a { color: var(--muted); text-decoration: none; }
 .site-header nav a:hover { color: var(--navy); }
+.site-header nav a.current { color: var(--navy); text-decoration: underline; text-underline-offset: 0.2em; font-weight: 600; }
 
-/* Type: serif for headings only, sans for body */
+/* Dropdowns (hover-triggered): used for "Projects" in the nav and "Extras" in the header */
+.dropdown { position: relative; font-family: var(--display); padding-bottom: 0.5rem; }
+.dropdown-toggle { cursor: default; color: var(--muted); display: inline-flex; align-items: center; gap: 0.3rem; }
+.dropdown:hover .dropdown-toggle,
+.dropdown:focus-within .dropdown-toggle { color: var(--navy); }
+.dropdown.current .dropdown-toggle { color: var(--navy); text-decoration: underline; text-underline-offset: 0.2em; font-weight: 600; }
+.caret { display: inline-block; font-size: 0.7em; transition: transform 0.15s ease; text-decoration: none; }
+.dropdown:hover .caret,
+.dropdown:focus-within .caret { transform: rotate(180deg); }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.4rem 0;
+  min-width: 11rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+.dropdown.align-right .dropdown-menu { left: auto; right: 0; }
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 1rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.dropdown-menu a:hover { color: var(--navy); background: var(--rule); }
+.ext-icon { font-size: 0.8em; }
+
+/* Type: display font for headings only, sans for body */
 h1, h2, h3 {
-  font-family: var(--serif);
+  font-family: var(--display);
   color: var(--navy);
   line-height: 1.15;
   font-weight: 700;
