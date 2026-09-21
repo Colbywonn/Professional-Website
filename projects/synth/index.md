@@ -7,19 +7,19 @@ description: A 3-voice polyphonic synthesizer ASIC, taped out on Tiny Tapeout SK
 # Poly-Synth
 
 <p class="status">Taped out on Tiny Tapeout SKY26c, silicon pending</p>
-<p><a href="https://github.com/YOUR-USERNAME/YOUR-REPO">Repository on GitHub</a></p>
+<p><a href="https://github.com/Colbywonn/tt-poly-synth">Repository on GitHub</a></p>
 
 Poly-Synth is a 3-voice polyphonic synthesizer ASIC, taped out on Tiny Tapeout SKY26c. It takes an input as a tuning word over SPI, passes it through one of 3 DDS cores, which consist of a phase accumulator and a shaper. Finally, the 3 voices are mixed arithmetically and are output via oversampling with a 1st-order Sigma-Delta module.
 
 ## Hear it
 
 <!-- TODO: your OBS recording. Label it as the FPGA prototype. -->
-<audio controls src="/assets/audio/fpga-demo.mp3"></audio>
+<audio controls src="null"></audio>
 
 ## System
 
 <!-- TODO: block diagram from the repo. Mark the chip boundary: MCU (MIDI to tuning words), SPI, chip, analog filters. -->
-![Poly-Synth block diagram](/assets/img/block-diagram.png)
+![Poly-Synth block diagram](null)
 
 ## Verification
 
