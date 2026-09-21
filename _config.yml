@@ -8,3 +8,9 @@ plugins:
   - jekyll-sitemap
 exclude:
   - README.md
+tagline: Digital design and verification
+social:
+  name: Colby Miller
+  links:
+    - https://github.com/Colbywonn
+    - https://www.linkedin.com/in/Colbywonn
