@@ -1,0 +1,79 @@
+:root {
+  --bg: #ffffff;
+  --text: #1a1f2b;
+  --muted: #5a6275;
+  --navy: #14285a;
+  --rule: #dde2ec;
+  --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+
+body {
+  margin: 0 auto;
+  max-width: 44rem;
+  padding: 2rem 1.25rem 4rem;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3rem;
+}
+.wordmark {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--navy);
+  text-decoration: none;
+}
+.site-header nav { display: flex; gap: 1.25rem; }
+.site-header nav a { color: var(--muted); text-decoration: none; }
+.site-header nav a:hover { color: var(--navy); }
+
+/* Type: serif for headings only, sans for body */
+h1, h2, h3 {
+  font-family: var(--serif);
+  color: var(--navy);
+  line-height: 1.15;
+  font-weight: 700;
+}
+h1 { font-size: clamp(2.75rem, 9vw, 4.5rem); margin: 0 0 1rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.75rem; margin: 3rem 0 0.75rem; }
+h3 { font-size: 1.3rem; margin: 2rem 0 0.5rem; }
+
+a { color: var(--navy); text-underline-offset: 0.2em; }
+a:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+
+.tagline { font-size: 1.25rem; color: var(--muted); margin: 0 0 1.5rem; max-width: 34rem; }
+
+.links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; padding: 0; margin: 0; list-style: none; }
+.links a { font-weight: 600; }
+
+/* Project entries on home */
+.project { border-top: 1px solid var(--rule); padding: 1.25rem 0; }
+.project h3 { margin: 0 0 0.25rem; }
+.project p { margin: 0 0 0.5rem; }
+.status { color: var(--muted); font-size: 0.95rem; }
+
+/* Project pages */
+img, audio, video { max-width: 100%; }
+audio { width: 100%; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { text-align: left; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--rule); }
+th { color: var(--navy); }
+code { font-size: 0.92em; background: #f3f5f9; padding: 0.1em 0.3em; border-radius: 3px; }
+
+.site-footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
