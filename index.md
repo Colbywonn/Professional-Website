@@ -9,9 +9,9 @@ title: Colby Miller
 
 <ul class="links">
   <li><a href="/resume.pdf">Resume</a></li>
-  <li><a href="https://github.com/YOUR-USERNAME">GitHub</a></li>
-  <li><a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a></li>
-  <li><a href="mailto:YOU@EXAMPLE.COM">Email</a></li>
+  <li><a href="https://github.com/Colbywonn">GitHub</a></li>
+  <li><a href="https://www.linkedin.com/in/Colbywonn">LinkedIn</a></li>
+  <li><a href="mailto:colbyjmiller+ECE@gmail.com">Email</a></li>
 </ul>
 
 ## Projects
