@@ -6,35 +6,57 @@
   {% seo %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
   <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="{{ '/assets/fonts/quantico-700.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/quantico-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/poppins-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  {% if page.hero %}
+  <link rel="preload" href="{{ '/assets/img/name-mask.webp' | relative_url }}" as="image" type="image/webp">
+  {% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 </head>
 <body>
   <header class="site-header">
-    <nav>
-      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="current"{% endif %}>Home</a>
-      <div class="dropdown{% if page.url contains '/projects/' %} current{% endif %}" tabindex="0">
-        <span class="dropdown-toggle">Projects <span class="caret" aria-hidden="true">&#9662;</span></span>
-        <div class="dropdown-menu">
-          <a href="{{ '/projects/synth/' | relative_url }}">Poly-Synth</a>
+    <div class="site-nav">
+      <div class="site-nav-inner">
+        <nav>
+          <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="current"{% endif %}>Home</a>
+          <div class="dropdown{% if page.url contains '/projects/' %} current{% endif %}">
+            <span class="dropdown-toggle"><a href="{{ '/projects/' | relative_url }}" class="toggle-label">Projects</a> <span class="caret" aria-hidden="true">&#9662;</span></span>
+            <div class="dropdown-menu">
+              <a href="{{ '/projects/synth/' | relative_url }}">Poly-Synth</a>
+              <div class="dropdown-divider"></div>
+              <a href="{{ '/projects/upcoming/' | relative_url }}">Upcoming Projects</a>
+            </div>
+          </div>
+        </nav>
+        <div class="dropdown disclosure align-right">
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="extras-menu"><span class="toggle-label">Extras</span> <span class="caret" aria-hidden="true">&#9662;</span></button>
+          <div class="dropdown-menu" id="extras-menu">
+            <a href="https://mission.colbywonn.com" target="_blank" rel="noopener">Mission Journal</a>
+          </div>
         </div>
       </div>
-      <a href="{{ '/assets/resume.pdf' | relative_url }}" target="_blank" rel="noopener">Resume</a>
-    </nav>
-    <div class="dropdown align-right" tabindex="0">
-      <span class="dropdown-toggle">Extras <span class="caret" aria-hidden="true">&#9662;</span></span>
-      <div class="dropdown-menu">
-        <a href="https://mission.colbywonn.com" target="_blank" rel="noopener">Mission Journal <span class="ext-icon" aria-hidden="true">&#8599;</span></a>
-      </div>
     </div>
+    {% if page.hero %}
+    <h1 class="name-mask">{{ page.hero }}</h1>
+    {% endif %}
   </header>
   <main>
     {{ content }}
   </main>
   <footer class="site-footer">
-    <p>&copy; {{ 'now' | date: "%Y" }} Colby Miller</p>
+    <p>
+      <span>&copy; {{ 'now' | date: "%Y" }} Colby Miller</span>
+      <span class="footer-links">
+        <a href="https://github.com/Colbywonn" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/Colbywonn" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:&#99;&#111;&#108;&#98;&#121;&#106;&#109;&#105;&#108;&#108;&#101;&#114;&#43;&#69;&#67;&#69;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">Email</a>
+      </span>
+    </p>
   </footer>
+  <script src="{{ '/assets/js/dropdowns.js' | relative_url }}"></script>
+  {% if page.hero %}
+  <script src="{{ '/assets/js/name-mask-parallax.js' | relative_url }}"></script>
+  {% endif %}
 </body>
 </html>
