@@ -20,6 +20,13 @@
   src: url("/assets/fonts/quantico-700.woff2") format("woff2");
 }
 @font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/assets/fonts/eb-garamond-variable.woff2") format("woff2");
+}
+@font-face {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
@@ -232,13 +239,48 @@ audio { width: 100%; margin: 1rem 0; }
 }
 .footer-links { display: flex; gap: 1.25rem; }
 
-/* 404 page */
-.error-page { text-align: center; padding-top: 1rem; }
-.error-page h1 { font-size: clamp(2rem, 6vw, 3rem); margin: 1.5rem 0 0.5rem; }
-.error-page .error-copy { font-size: 1.15rem; margin: 0 0 1.5rem; }
-.error-page .error-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.75rem; }
-.error-page .error-photo { width: 100%; max-width: 560px; height: auto; border-radius: 8px; margin: 0 auto; display: block; }
-.error-page .photo-credit { font-size: 0.8rem; margin-top: 2.5rem; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 404 page: the joke (message box and knight), then a plain explanation in normal site styles */
+.error-page { text-align: center; }
+.error-page .error-photo { width: 100%; max-width: 340px; height: auto; margin: 1rem auto 0; display: block; }
+.error-plain { margin-top: 1.25rem; }
+.error-plain h1 { margin: 0 0 0.35rem; font-size: clamp(3.5rem, 12vw, 5rem); line-height: 1; }
+.error-plain p { margin: 0 0 0.75rem; font-size: 1.1rem; }
+
+/* In-game message window after Dark Souls' floor messages: black torn-edge banner with a
+   drop shadow, white text, rating aligned right. */
+.ds-message {
+  position: relative;
+  isolation: isolate;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 0.8rem 1.3rem 0.7rem;
+  color: #fff;
+  font-family: "EB Garamond", "Adobe Garamond Pro", Garamond, Georgia, serif;
+  text-align: left;
+}
+/* The black backing is a separate layer so the tatter filter roughens only its edges, never the text */
+.ds-message::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 50% 45%, rgba(10, 10, 10, 0.98), rgba(0, 0, 0, 0.98) 75%);
+  filter: url(#ds-tatter) drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
+}
+.ds-text { margin: 0; font-size: 1.35rem; line-height: 1.2; letter-spacing: 0.02em; }
+.ds-rating { display: flex; justify-content: flex-end; gap: 2rem; margin: 0.3rem 0 0; font-size: 0.95rem; }
 
 /* Reduced motion: no scroll animation, so render the name statically at the size the
    shrink would end at, keeping the pinned band compact. Kept last so it wins the cascade. */

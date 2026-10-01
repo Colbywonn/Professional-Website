@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% seo %}
-  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
-  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <!-- ?v= busts browsers' long-lived favicon cache; bump it whenever the icons change -->
+  <link rel="icon" href="{{ '/favicon.ico?v=2' | relative_url }}" sizes="any">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png?v=2' | relative_url }}">
   <link rel="preload" href="{{ '/assets/fonts/quantico-700.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/quantico-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/poppins-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
